@@ -1,0 +1,280 @@
+{
+	"info": {
+		"_postman_id": "9f988b75-96a5-4f3c-9ae4-8d17ebe64f17",
+		"name": "CodeMastersElearningPOSTMAN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21636015"
+	},
+	"item": [
+		{
+			"name": "newBill User provider1 or provider2",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "h8NtpokmQ9O8MaMLLZVo4EdqEr8UzKTr",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "provider1-Token",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "http://localhost:8080/realms/CodeMastersElearning/protocol/openid-connect/token",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "http://localhost:8080/realms/CodeMastersElearning/protocol/openid-connect/auth",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "api-gateway-client",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "username",
+						"value": "provider1",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "password",
+						"value": "password",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customerBill\": \"d94704ec-c9f5-48f2-9f4a-3e6bd57ad0c9\",\r\n  \"productBill\": \"courses/Java\",\r\n  \"totalPrice\": 2400.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8086/bills/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"bills",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserFromMsUsers",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessTokenUrl",
+							"value": "http://localhost:8080/realms/CodeMastersElearning/protocol/openid-connect/token",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "http://localhost:8080/realms/CodeMastersElearning/protocol/openid-connect/auth",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "api-gateway-client",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "QxYPDHeCiRrtE2DmvI3tyJo30JedLRoU",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "gi-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/v1/users/find/d94704ec-c9f5-48f2-9f4a-3e6bd57ad0c9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"find",
+						"d94704ec-c9f5-48f2-9f4a-3e6bd57ad0c9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllBillsFromMsBills User Gisela",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "tokenName",
+							"value": "gise-token",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "h8NtpokmQ9O8MaMLLZVo4EdqEr8UzKTr",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "http://localhost:8080/realms/CodeMastersElearning/protocol/openid-connect/token",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "http://localhost:8080/realms/CodeMastersElearning/protocol/openid-connect/auth",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "api-gateway-client",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/v1/bills/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"v1",
+						"bills",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBillsByUserId - from Bills",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "clientSecret",
+							"value": "h8NtpokmQ9O8MaMLLZVo4EdqEr8UzKTr",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "provider-Token",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "http://localhost:8080/realms/CodeMastersElearning/protocol/openid-connect/token",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "http://localhost:8080/realms/CodeMastersElearning/protocol/openid-connect/auth",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "api-gateway-client",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/api/v1/bills/find/d94704ec-c9f5-48f2-9f4a-3e6bd57ad0c9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"api",
+						"v1",
+						"bills",
+						"find",
+						"d94704ec-c9f5-48f2-9f4a-3e6bd57ad0c9"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
